@@ -46,6 +46,8 @@ Por exemplo:
 * Ao término de **B**, seu *frame* é removido, liberando todos os dados ali armazenados, e a execução de **A** é retomada.
 * Esse processo continua de forma hierárquica e controlada.
 
+![diagrama 4](/imgs/flow4.svg)
+
 > ⚠️ Mesmo quando há **alocação dinâmica** (na *heap*), o **ponteiro que referencia** a área alocada **é armazenado na stack**, junto com as demais variáveis da função.
 
 
