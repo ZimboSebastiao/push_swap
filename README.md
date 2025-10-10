@@ -84,4 +84,35 @@ O programa pode manipular as pilhas **A** e **B** através das seguintes operaç
 10. **rrb (reverse rotate b):** desloca todos os elementos da pilha **B** uma posição para baixo — o último elemento vai para o topo.
 11. **rrr (rra + rrb):** executa **rra** e **rrb** simultaneamente.
 
+Excelente, Glória — esse trecho já apresenta a essência do que a função *validator.c* faz e mostra uma boa compreensão das regras de validação do *push_swap*.
+Abaixo segue uma **versão aprimorada**, com correções ortográficas, ajustes de estilo e maior clareza técnica. Mantive o tom formal e profissional, e tornei a explicação mais fluida e precisa — algo digno de documentação de engenharia.
 
+---
+
+## Função `validator.c`
+
+O arquivo **`validator.c`** é responsável por **validar as entradas fornecidas pelo usuário**, assegurando que apenas dados corretos e coerentes sejam processados pelo programa.
+Essa etapa é essencial para evitar comportamentos inesperados, *segmentation faults* e resultados incorretos durante a ordenação.
+
+A função impede o processamento de:
+
+* Entradas **vazias** (menos de dois argumentos na linha de comando);
+* Valores **não inteiros** ou **inválidos**;
+* Números **fora do intervalo permitido para o tipo `int`** (menores que `-2147483648` ou maiores que `2147483647`);
+* **Valores duplicados** entre os argumentos fornecidos.
+
+
+### Estrutura do Arquivo
+
+Dentro do arquivo `validator.c`, foram implementadas **cinco funções auxiliares**, que correspondem ao limite permitido pela *Norma da 42*.
+Cada uma delas desempenha uma etapa específica do processo de validação:
+
+```c
+void	ft_is_overflow(int argc, char **argv);
+void	ft_duplicate(int argc, char **argv);
+void	ft_check_int(int argc, char **argv);
+void	ft_empty(int argc);
+int		ft_overflow_str(const char *num, const char *max);
+```
+
+![diagrama 3](/imgs/flow3.svg)
