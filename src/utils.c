@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 22:17:43 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/10 23:18:14 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,15 @@ int	ft_strcmp(const char *s1, const char *s2)
 		s2++;
 	}
 	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
+
+void	print_stack(t_stack *head)
+{
+	ft_printf("Teste: ");
+	while (head != NULL)
+	{
+		ft_printf("%d ", head->value);
+		head = head->next;
+	}
+	ft_printf("\n");
 }
