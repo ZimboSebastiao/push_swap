@@ -2,8 +2,6 @@
 
 O projeto **Push Swap** consiste na implementação de um programa capaz de ordenar uma sequência de números inteiros contidos na pilha **A**, de forma crescente, utilizando um conjunto limitado de operações pré-definidas.
 
-
-
 ## Fluxo Padrão do Programa
 
 Quando criamos um novo arquivo ou pasta no computador, eles são armazenados de forma permanente no disco rígido (**Hard Disk**).
@@ -17,7 +15,6 @@ A RAM, então, **estabelece uma comunicação direta com o processador (CPU)**, 
 Esse processo permite que as instruções sejam executadas rapidamente, aproveitando o acesso de alta velocidade entre CPU e memória.
 
 ![diagrama 1](/imgs/flow1.svg)
-
 
 ## Armazenamento e Alocação de Memória
 
