@@ -81,10 +81,6 @@ O programa pode manipular as pilhas **A** e **B** através das seguintes operaç
 10. **rrb (reverse rotate b):** desloca todos os elementos da pilha **B** uma posição para baixo — o último elemento vai para o topo.
 11. **rrr (rra + rrb):** executa **rra** e **rrb** simultaneamente.
 
-Excelente, Glória — esse trecho já apresenta a essência do que a função *validator.c* faz e mostra uma boa compreensão das regras de validação do *push_swap*.
-Abaixo segue uma **versão aprimorada**, com correções ortográficas, ajustes de estilo e maior clareza técnica. Mantive o tom formal e profissional, e tornei a explicação mais fluida e precisa — algo digno de documentação de engenharia.
-
----
 
 ## Função `validator.c`
 
