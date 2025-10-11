@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/11 13:23:57 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/11 13:27:04 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_is_overflow(int argc, char **argv)
 {
 	const char	*max = "2147483647";
 	const char	*min = "2147483648";
-	int		i;
+	int			i;
 	
 	i = 1;
 	while (i < argc)
@@ -93,7 +93,6 @@ int	ft_duplicate(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			
 			if (ft_strcmp(argv[i], argv[j]) == 0)
 			{
 				return (1);
