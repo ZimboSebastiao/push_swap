@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 13:26:06 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/10 22:18:58 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 #include <limits.h>
 
 
-void	ft_empty(int argc)
+int	ft_empty(int argc)
 {
 	if (argc == 1)
-		exit(0);
+		return (1);
+	
+	return (0);
 }
 
-void	ft_check_int(int argc, char **argv)
+int	ft_check_int(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -32,14 +34,12 @@ void	ft_check_int(int argc, char **argv)
 		while (argv[i][j])
 		{
 			if(!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-			{
-				ft_printf("Error\n");
-				exit(0);
-			}
+				return (1);
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
 static int	ft_overflow_str(const char *num, const char *max)
@@ -57,7 +57,7 @@ static int	ft_overflow_str(const char *num, const char *max)
 	return (ft_strncmp(num, max, size_num) > 0);
 }
 
-void	ft_is_overflow(int argc, char **argv)
+int	ft_is_overflow(int argc, char **argv)
 {
 	const char	*max = "2147483647";
 	int		i;
@@ -67,18 +67,17 @@ void	ft_is_overflow(int argc, char **argv)
 	{
 		if (ft_overflow_str(argv[i], max))
 		{
-			ft_printf("Error\n");
-			exit(0);
+			return (1);
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	ft_duplicate(int argc, char **argv)
+int	ft_duplicate(int argc, char **argv)
 {
 	int		i;
 	int		j;
-	size_t	size;
 
 	i = 1;
 	while (i < argc)
@@ -86,14 +85,14 @@ void	ft_duplicate(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			size = ft_strlen(argv[j]);
-			if (ft_strncmp(argv[i], argv[j], size) == 0)
+			
+			if (ft_strcmp(argv[i], argv[j]) == 0)
 			{
-				ft_printf("Error\n");
-				exit(0);
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }

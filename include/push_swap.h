@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 12:18:58 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/10 22:18:10 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-void	ft_is_overflow(int argc, char **argv);
-void	ft_duplicate(int argc, char **argv);
-void	ft_check_int(int argc, char **argv);
-void	ft_empty(int argc);
+int	ft_strcmp(const char *s1, const char *s2);
+int	ft_is_overflow(int argc, char **argv);
+int	ft_duplicate(int argc, char **argv);
+int	ft_check_int(int argc, char **argv);
+int	checker(int argc, char **argv);
+int	ft_empty(int argc);
 
 #endif

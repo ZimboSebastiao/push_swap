@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 14:44:48 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/10 22:10:36 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int main(int argc, char **argv)
 {
-	ft_empty(argc);
-	ft_check_int(argc, argv);
-	ft_duplicate(argc, argv);
-	ft_is_overflow(argc, argv);
+	if (checker(argc, argv) == 0)
+		ft_printf("So far, so good!\n");
+	else
+		ft_printf("Error\n");
 
 	return (0);
 }

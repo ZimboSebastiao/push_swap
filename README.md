@@ -108,11 +108,11 @@ Dentro do arquivo `validator.c`, foram implementadas **cinco funções auxiliare
 Cada uma delas desempenha uma etapa específica do processo de validação:
 
 ```c
-void	ft_is_overflow(int argc, char **argv);
-void	ft_duplicate(int argc, char **argv);
-void	ft_check_int(int argc, char **argv);
-void	ft_empty(int argc);
-int		ft_overflow_str(const char *num, const char *max);
+int	ft_is_overflow(int argc, char **argv);
+int	ft_duplicate(int argc, char **argv);
+int	ft_check_int(int argc, char **argv);
+int	ft_empty(int argc);
+int	ft_overflow_str(const char *num, const char *max);
 ```
 
 ![diagrama 3](/imgs/flow3.svg)
