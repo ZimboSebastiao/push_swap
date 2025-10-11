@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 22:18:58 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/11 13:23:57 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	ft_check_int(int argc, char **argv)
 	while(i < argc)
 	{
 		j = 0;
+		if (argv[i][j] == '-' || argv[i][j] == '+')
+			j++;
+		if (argv[i][j] == '\0')
+			return (1);
 		while (argv[i][j])
 		{
 			if(!(argv[i][j] >= '0' && argv[i][j] <= '9'))
@@ -60,15 +64,19 @@ static int	ft_overflow_str(const char *num, const char *max)
 int	ft_is_overflow(int argc, char **argv)
 {
 	const char	*max = "2147483647";
+	const char	*min = "2147483648";
 	int		i;
 	
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_overflow_str(argv[i], max))
+		if (argv[i][0] == '-')
 		{
-			return (1);
+			if (ft_overflow_str(argv[i] + 1, min))
+				return (1);
 		}
+		else if (ft_overflow_str(argv[i], max))
+			return (1);
 		i++;
 	}
 	return (0);
