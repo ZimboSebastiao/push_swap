@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 02:39:20 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 03:33:06 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int		ft_duplicate(int argc, char **argv);
 int		ft_check_int(int argc, char **argv);
 t_stack	*ft_receiver(int argc, char **argv);
 int		ft_checker(int argc, char **argv);
+void	ft_reverse_rotate_a(t_data *data);
+void	ft_reverse_rotate_b(t_data *data);
 void	ft_print_stack(t_stack *head);
+void	ft_rotate_a_b(t_data *data);
 void	ft_swap_a_b(t_data *data);
 void	ft_rotate_a(t_data *data);
 void	ft_rotate_b(t_data *data);

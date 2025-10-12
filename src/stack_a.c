@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 02:32:35 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 03:31:36 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,20 @@ void	ft_rotate_a(t_data *data)
 
 	last->next = first;
 	first->next = NULL;
+}
+
+void	ft_reverse_rotate_a(t_data *data)
+{
+	t_stack	*first;
+	t_stack	*last;
+	
+	first = data->a;
+	while (first->next->next != NULL)
+		first = first->next;
+
+	last = first->next;
+	first->next = NULL;
+	last->next = data->a;
+	data->a = last;
+	
 }
