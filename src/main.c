@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 14:46:44 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 17:00:39 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	data = malloc(sizeof(t_data));
 	data->a = ft_receiver(argc, argv);
 	data->b = NULL;
-
+	ft_small_sort(data);
 	// ft_putstr("Stack a Antes:\n\n");
 	// ft_reverse_rotate_a(data);
 	// ft_rotate_a(data);

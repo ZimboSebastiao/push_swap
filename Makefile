@@ -57,7 +57,7 @@ NAME        := push_swap
 # **************************************************************************** #
 
 # Arquivos fonte do projeto principal
-SRC_FILES   := main validator utils receiver  stack_a  stack_b stacks \
+SRC_FILES   := main validator utils receiver  stack_a  stack_b stacks small_sort \
             
 
 # Arquivos fonte do bônus (checker)

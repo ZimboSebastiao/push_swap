@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 14:45:35 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 16:58:05 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,5 @@ void	ft_print_stack(t_stack *head)
 	}
 	// ft_printf("\n");
 }
+
+void	ft_push_swap(t_data *data);
