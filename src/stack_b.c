@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 00:51:05 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 02:39:02 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,20 @@ void	ft_swap_b(t_data *data)
 		current = current->next;
 	}
 	ft_printf("\n");
+}
+
+void	ft_rotate_b(t_data *data)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	first = data->b;
+	data->b = first->next;
+
+	last = data->b;
+	while (last->next != NULL)
+		last = last->next;
+
+	last->next = first;
+	first->next = NULL;
 }
