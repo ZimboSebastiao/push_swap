@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 14:02:25 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 14:16:11 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	ft_rotate_b(t_data *data)
 {
 	t_stack	*first;
 	t_stack	*last;
+
+	if (data == NULL || data->b == NULL || data->b->next == NULL)
+	return;
 
 	first = data->b;
 	data->b = first->next;

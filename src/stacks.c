@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 13:55:02 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 14:16:34 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	ft_reverse_rotate_a_b(t_data *data)
 {
 	ft_reverse_rotate_a(data);
 	ft_reverse_rotate_b(data);
-	ft_putstr_fd("rrr", 1);
+	ft_putstr_fd("rrr\n", 1);
 }

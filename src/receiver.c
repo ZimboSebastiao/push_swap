@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 00:55:47 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 14:48:22 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 t_stack	*ft_insert(int data, t_stack *head)
 {
-	t_stack *temp = malloc(sizeof(t_stack));
+	t_stack	*current;
+	t_stack *temp;
+
+	temp = malloc(sizeof(t_stack));
+	if (!temp)
+		return (NULL);
 	temp->value = data;
-	temp->next = head;
-	head = temp;
+	temp->next = NULL;
+
+	if (head == NULL)
+		return (temp);
+	current = head;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = temp;
 	return (head);
 }
 
@@ -32,6 +43,5 @@ t_stack	*ft_receiver(int argc, char **argv)
 		head = ft_insert(ft_atoi(argv[i]), head);
 		i++;
 	}
-	ft_print_stack(head);
 	return (head);
 }
