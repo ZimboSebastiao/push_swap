@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 03:32:38 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 14:02:25 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_push_b(t_data *data)
 	first->next = data->b;
 	data->b = first;
 
-	ft_printf("\npush_b: %d\n", first->value);
+	ft_putstr_fd("pb\n", 1);
 
 }
 
@@ -42,14 +42,8 @@ void	ft_swap_b(t_data *data)
 	temp = first->value;
 	first->value = second->value;
 	second->value = temp;
-	
-	t_stack *current = data->b;
-	while (current)
-	{
-		ft_printf("%d ", current->value);
-		current = current->next;
-	}
-	ft_printf("\n");
+
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ft_rotate_b(t_data *data)
@@ -66,12 +60,17 @@ void	ft_rotate_b(t_data *data)
 
 	last->next = first;
 	first->next = NULL;
+
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	ft_reverse_rotate_b(t_data *data)
 {
 	t_stack	*first;
 	t_stack	*last;
+
+	if (data == NULL || data->b == NULL || data->b->next == NULL)
+		return;
 	
 	first = data->b;
 	while (first->next->next != NULL)
@@ -81,5 +80,5 @@ void	ft_reverse_rotate_b(t_data *data)
 	first->next = NULL;
 	last->next = data->b;
 	data->b = last;
-	
+	ft_putstr_fd("rrb\n", 1);
 }

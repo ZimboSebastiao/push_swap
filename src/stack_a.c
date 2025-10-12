@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 03:31:36 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 14:02:08 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,11 @@ void	ft_swap_a(t_data *data)
 		return;
 
 	second = first->next;
-
 	temp = first->value;
 	first->value = second->value;
 	second->value = temp;
 	
-	t_stack *current = data->a;
-	while (current)
-	{
-		ft_printf("%d ", current->value);
-		current = current->next;
-	}
-	ft_printf("\n");
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	ft_push_a(t_data *data)
@@ -48,7 +41,7 @@ void	ft_push_a(t_data *data)
 	first->next = data->a;
 	data->a = first;
 
-	ft_printf("\npush_a: %d\n", first->value);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	ft_rotate_a(t_data *data)
@@ -68,6 +61,8 @@ void	ft_rotate_a(t_data *data)
 
 	last->next = first;
 	first->next = NULL;
+
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	ft_reverse_rotate_a(t_data *data)
@@ -75,6 +70,9 @@ void	ft_reverse_rotate_a(t_data *data)
 	t_stack	*first;
 	t_stack	*last;
 	
+	if (data == NULL || data->a == NULL || data->a->next == NULL)
+		return;
+
 	first = data->a;
 	while (first->next->next != NULL)
 		first = first->next;
@@ -83,5 +81,5 @@ void	ft_reverse_rotate_a(t_data *data)
 	first->next = NULL;
 	last->next = data->a;
 	data->a = last;
-	
+	ft_putstr_fd("rra\n", 1);
 }
