@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 23:19:37 by zimbo            ###   ########.fr       */
+/*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
+/*   Updated: 2025/10/12 01:00:54 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ft_printf.h"
 
-int main(int argc, char **argv)
+void	ft_swap_a_b(t_data *data)
 {
-	if (checker(argc, argv) == 0)
-		ft_receiver(argc, argv);
-	else
-		ft_printf("Error\n");
-
-	return (0);
+	ft_swap_a(data);
+	ft_swap_b(data);
 }

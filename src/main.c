@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 00:51:27 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 01:11:00 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_checker(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	if (ft_empty(argc))
-		exit(0);
-	if (ft_check_int(argc, argv))
+	t_data *data = malloc(sizeof(t_data));
+	if (ft_checker(argc, argv) != 0)
+	{
+		ft_putstr("Error\n");
 		return (1);
-	if (ft_is_overflow(argc, argv))
-		return (1);
-	if (ft_duplicate(argc, argv))
-		return (1);
+	}
+	data->a = ft_receiver(argc, argv);
+	data->b = NULL;
+
+	// ft_swap_a(data);
+	ft_push_b(data);
+
+	
+	ft_push_a(data);
+	// ft_push_a(data);
+	ft_putstr("Stack a:\n");
+	ft_print_stack(data->a);
+
+	
+
+	// ft_print_stack(data->a);
+	free(data);
 	return (0);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
-}
-
-void	ft_print_stack(t_stack *head)
-{
-	// ft_printf("Teste: ");
-	while (head != NULL)
-	{
-		ft_printf("print: %d\n", head->value);
-		head = head->next;
-	}
-	// ft_printf("\n");
 }

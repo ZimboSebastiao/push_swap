@@ -1,47 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   stack_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 00:51:27 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 00:50:53 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_checker(int argc, char **argv)
+void	ft_swap_a(t_data *data)
 {
-	if (ft_empty(argc))
-		exit(0);
-	if (ft_check_int(argc, argv))
-		return (1);
-	if (ft_is_overflow(argc, argv))
-		return (1);
-	if (ft_duplicate(argc, argv))
-		return (1);
-	return (0);
+	t_stack	*first;
+	t_stack	*second;
+	int	temp;
+	
+	first = data->a;
+	if (!first || !first->next)
+		return;
+
+	second = first->next;
+
+	temp = first->value;
+	first->value = second->value;
+	second->value = temp;
+	
+	t_stack *current = data->a;
+	while (current)
+	{
+		ft_printf("%d ", current->value);
+		current = current->next;
+	}
+	ft_printf("\n");
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_push_a(t_data *data)
 {
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
-}
+	t_stack *first;
 
-void	ft_print_stack(t_stack *head)
-{
-	// ft_printf("Teste: ");
-	while (head != NULL)
-	{
-		ft_printf("print: %d\n", head->value);
-		head = head->next;
-	}
-	// ft_printf("\n");
+	if (data == NULL || data->b == NULL)
+		return;
+	first = data->b;
+	data->b = first->next;
+	first->next = data->a;
+	data->a = first;
+
+	ft_printf("\npush_a: %d\n", first->value);
 }

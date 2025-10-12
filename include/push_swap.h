@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 23:07:28 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 01:01:20 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,24 @@ typedef struct s_stack {
 	struct s_stack *next;
 }t_stack;
 
+typedef struct s_data {
+	t_stack *a;
+	t_stack *b;
+}t_data;
+
 int		ft_strcmp(const char *s1, const char *s2);
-t_stack	*ft_insert(int data, t_stack *head);
 int		ft_is_overflow(int argc, char **argv);
+t_stack	*ft_insert(int data, t_stack *head);
 int		ft_duplicate(int argc, char **argv);
 int		ft_check_int(int argc, char **argv);
 t_stack	*ft_receiver(int argc, char **argv);
-int		checker(int argc, char **argv);
-void	print_stack(t_stack *head);
+int		ft_checker(int argc, char **argv);
+void	ft_print_stack(t_stack *head);
+void	ft_swap_a_b(t_data *data);
+void	ft_swap_a(t_data *data);
+void	ft_swap_b(t_data *data);
+void	ft_push_b(t_data *data);
+void	ft_push_a(t_data *data);
 int		ft_empty(int argc);
 
 

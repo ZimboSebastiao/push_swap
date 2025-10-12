@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/10 23:44:12 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 00:55:47 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_stack	*ft_receiver(int argc, char **argv)
 	while (i < argc)
 	{
 		head = ft_insert(ft_atoi(argv[i]), head);
-		print_stack(head);
 		i++;
 	}
+	ft_print_stack(head);
 	return (head);
 }
