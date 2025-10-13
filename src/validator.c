@@ -6,19 +6,16 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/11 13:27:04 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 21:23:00 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
-
 
 int	ft_empty(int argc)
 {
 	if (argc == 1)
 		return (1);
-	
 	return (0);
 }
 
@@ -28,7 +25,7 @@ int	ft_check_int(int argc, char **argv)
 	int	j;
 
 	i = 1;
-	while(i < argc)
+	while (i < argc)
 	{
 		j = 0;
 		if (argv[i][j] == '-' || argv[i][j] == '+')
@@ -37,7 +34,7 @@ int	ft_check_int(int argc, char **argv)
 			return (1);
 		while (argv[i][j])
 		{
-			if(!(argv[i][j] >= '0' && argv[i][j] <= '9'))
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				return (1);
 			j++;
 		}
@@ -57,7 +54,6 @@ static int	ft_overflow_str(const char *num, const char *max)
 		return (1);
 	if (size_num < size_max)
 		return (0);
-
 	return (ft_strncmp(num, max, size_num) > 0);
 }
 
@@ -66,7 +62,7 @@ int	ft_is_overflow(int argc, char **argv)
 	const char	*max = "2147483647";
 	const char	*min = "2147483648";
 	int			i;
-	
+
 	i = 1;
 	while (i < argc)
 	{

@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 16:56:03 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 21:19:49 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-#include <limits.h>
-#include "ft_printf.h"
-#include "libft.h"
+# include <limits.h>
+# include "ft_printf.h"
+# include "libft.h"
 
-typedef struct s_stack {
-	int value;
-	struct s_stack *next;
-}t_stack;
+typedef struct s_stack
+{
+	int				value;
+	struct s_stack	*next;
+}	t_stack;
 
-typedef struct s_data {
-	t_stack *a;
-	t_stack *b;
-}t_data;
+typedef struct s_data
+{
+	t_stack	*a;
+	t_stack	*b;
+}	t_data;
 
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_is_overflow(int argc, char **argv);
@@ -49,7 +51,5 @@ void	ft_swap_b(t_data *data);
 void	ft_push_b(t_data *data);
 void	ft_push_a(t_data *data);
 int		ft_empty(int argc);
-
-
 
 #endif

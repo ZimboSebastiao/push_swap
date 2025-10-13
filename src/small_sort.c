@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 17:55:59 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 21:20:32 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ static void	ft_sort_three(t_data *data)
 		ft_swap_a(data);
 		ft_reverse_rotate_a(data);
 	}
+}
+
+static void	ft_sort_four(t_data *data)
+{
+	if (!data || !data->a)
+		return;
+
+	t_stack *min;
+	t_stack *current;
+	min = data->a;
+	current = data->a;
+
 }
 
 void	ft_small_sort(t_data *data)
