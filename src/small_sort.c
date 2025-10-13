@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 21:20:32 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/12 22:01:49 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 static void	ft_sort_two(t_data *data)
 {
 	if (data == NULL || data->a == NULL || data->a->next == NULL)
-		return;
-
+		return ;
 	if (data->a->value > data->a->next->value)
 		ft_swap_a(data);
 }
 
 static void	ft_sort_three(t_data *data)
 {
+	int	one;
+	int	two;
+	int	three;
+
 	if (data == NULL || data->a == NULL || data->a->next->next == NULL)
-		return;
-
-	int	one = data->a->value;
-	int	two = data->a->next->value;
-	int	three = data->a->next->next->value;
-
+		return ;
+	one = data->a->value;
+	two = data->a->next->value;
+	three = data->a->next->next->value;
 	if (one > two && two < three && one < three)
 		ft_swap_a(data);
 	else if (one > two && two < three && one > three)
@@ -48,27 +49,67 @@ static void	ft_sort_three(t_data *data)
 	}
 }
 
-static void	ft_sort_four(t_data *data)
+static void	ft_move_min_to_b(t_data *data)
 {
-	if (!data || !data->a)
-		return;
+	t_stack	*min;
+	t_stack	*current;
+	int		position;
+	int		total;
 
-	t_stack *min;
-	t_stack *current;
+	total = 0;
+	position = 0;
 	min = data->a;
 	current = data->a;
+	while (current)
+	{
+		if (current->value < min->value)
+		{
+			min = current;
+			pos = total;
+		}
+		current = current->next;
+		total++;
+	}
+	if (position <= total / 2)
+		while (data->a != min)
+			ft_rotate_a(data);
+	else
+		while (data->a != min)
+			ft_reverse_rotate_a(data);
+	ft_push_b(data);
+}
 
+static void	ft_sort_four_five(t_data *data)
+{
+	t_stack	*temp;
+	int		count;
+	int		to_push;
+
+	if (!data || !data->a)
+		return ;
+	count = 0;
+	temp = data->a;
+	while (temp)
+	{
+		count++;
+		temp = temp->next;
+	}
+	to_push = count - 3;
+	while (to_push--)
+		ft_move_min_to_b(data);
+	ft_sort_three(data);
+	while (data->b)
+		ft_push_a(data);
 }
 
 void	ft_small_sort(t_data *data)
 {
-	if (!data || !data->a)
-		return;
-	
 	t_stack	*temp;
 	int		count;
-	temp = data->a;
 
+	if (!data || !data->a)
+		return ;
+	temp = data->a;
 	count = 0;
 	while (temp != NULL)
 	{
@@ -80,5 +121,6 @@ void	ft_small_sort(t_data *data)
 		ft_sort_two(data);
 	if (count == 3)
 		ft_sort_three(data);
-
+	if (count == 4 || count == 5)
+		ft_sort_four_five(data);
 }
