@@ -128,6 +128,3 @@ ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; valgrind ./push_swap $ARG
 - A pilha **A** é inicializada com os números fornecidos como argumento
 - A pilha **B** inicia vazia
 - O resultado é uma sequência de operações que ordena a pilha **A**
-
-
-![diagrama 3](/imgs/flow3.svg)
