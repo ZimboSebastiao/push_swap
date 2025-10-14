@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 05:01:18 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 05:59:27 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*ft_receiver(int argc, char **argv);
 int		ft_checker(int argc, char **argv);
 void	ft_reverse_rotate_a(t_data *data);
 void	ft_reverse_rotate_b(t_data *data);
-void	ft_print_stack(t_stack *head);
+void	ft_free_stack(t_stack *stack);
 int		ft_stack_size(t_stack *stack);
 int		ft_is_sorted(t_stack *stack);
 void	ft_small_sort(t_data *data);

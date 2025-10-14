@@ -6,23 +6,11 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 04:38:27 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 05:59:42 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ft_free_stack(t_stack *stack)
-{
-	t_stack *tmp;
-
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
-}
 
 int	main(int argc, char **argv)
 {

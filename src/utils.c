@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 05:00:56 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 06:03:28 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-void	ft_print_stack(t_stack *head)
-{
-	while (head != NULL)
-	{
-		ft_printf("print: %d\n", head->value);
-		head = head->next;
-	}
-}
-
 int	ft_is_sorted(t_stack *stack)
 {
 	t_stack	*cur;
@@ -59,48 +50,19 @@ int	ft_is_sorted(t_stack *stack)
 int	ft_get_min_distance(int pos, int size)
 {
 	if (pos < size - pos)
-		return pos;
+		return (pos);
 	else
-		return size - pos;
+		return (size - pos);
 }
 
-// Função auxiliar para ft_final_rotate_a
-void	ft_final_rotate_a(t_data *data)
+void	ft_free_stack(t_stack *stack)
 {
-	int	min_pos;
-	int	size;
-	int	min_value;
-	t_stack	*current;
-	int	pos;
+	t_stack	*tmp;
 
-	if (!data->a)
-		return ;
-	
-	min_value = data->a->value;
-	min_pos = 0;
-	current = data->a;
-	pos = 0;
-	while (current)
+	while (stack)
 	{
-		if (current->value < min_value)
-		{
-			min_value = current->value;
-			min_pos = pos;
-		}
-		pos++;
-		current = current->next;
-	}
-	
-	size = ft_stack_size(data->a);
-	if (min_pos <= size / 2)
-	{
-		while (min_pos-- > 0)
-			ft_rotate_a(data);
-	}
-	else
-	{
-		min_pos = size - min_pos;
-		while (min_pos-- > 0)
-			ft_reverse_rotate_a(data);
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
 	}
 }

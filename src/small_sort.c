@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 03:21:50 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 06:02:18 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,8 @@ void	ft_small_sort(t_data *data)
 		temp = temp->next;
 		count++;
 	}
-
-	if (count == 1) 
-        return;
+	if (count == 1)
+		return ;
 	else if (count == 2)
 		ft_sort_two(data);
 	else if (count == 3)
