@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 05:59:27 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 20:41:36 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_free_stack(t_stack *stack);
 int		ft_stack_size(t_stack *stack);
 int		ft_is_sorted(t_stack *stack);
 void	ft_small_sort(t_data *data);
+void	ft_medium_sort(t_data *data);
 void	ft_rotate_a_b(t_data *data);
 void	ft_swap_a_b(t_data *data);
 void	ft_rotate_a(t_data *data);
@@ -56,5 +57,8 @@ void	ft_swap_a(t_data *data);
 void	ft_swap_b(t_data *data);
 void	ft_push_b(t_data *data);
 void	ft_push_a(t_data *data);
+void	ft_move_max_to_top_b(t_data *data);
+int		ft_find_min_value(t_stack *stack);    // NOVA
+int		ft_find_max_value(t_stack *stack);    // NOVA
 int		ft_empty(int argc);
 #endif

@@ -45,7 +45,7 @@ LIBFT       := $(LIBFT_DIR)/libft.a
 NAME        := push_swap
 
 # Arquivos fonte do projeto principal
-SRC_FILES   := main validator utils receiver  stack_a  stack_b stacks small_sort big_sort \
+SRC_FILES   := main validator utils receiver  stack_a  stack_b stacks small_sort big_sort medium_sort \
             
 
 # Arquivos fonte do bônus (checker)

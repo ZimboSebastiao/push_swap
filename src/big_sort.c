@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 20:25:46 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 20:36:57 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,52 +80,19 @@ void	ft_move_max_to_top_b(t_data *data)
 void	ft_big_sort(t_data *data)
 {
 	int	size;
-	int	chunk_size;
-	int	i;
-	int	pushed;
-	int	max_rotations;
 
 	if (!data || !data->a || ft_is_sorted(data->a))
 		return ;
 	size = ft_stack_size(data->a);
 	if (size <= 5)
 		return (ft_small_sort(data));
-	chunk_size = (size - 1) / 5 + 1;
-	i = 0;
-	pushed = 0;
-	max_rotations = 0;
-	
-	while (pushed < size)
+	else if (size <= 500)
+		return (ft_medium_sort(data));
+	else
 	{
-		if (data->a->value <= i)
-		{
-			ft_push_b(data);
-			if (data->b && data->b->next)
-				ft_rotate_b(data);
-			i++;
-			pushed++;
-			max_rotations = 0;
-		}
-		else if (data->a->value <= i + chunk_size)
-		{
-			ft_push_b(data);
-			i++;
-			pushed++;
-			max_rotations = 0;
-		}
-		else
-		{
-			ft_rotate_a(data);
-			max_rotations++;
-			if (max_rotations > size)
-			{
-				chunk_size *= 2;
-				max_rotations = 0;
-			}
-		}
+		// Para números muito grandes, usa uma estratégia mais agressiva
+		ft_medium_sort(data);
 	}
-	while (data->b)
-		(ft_move_max_to_top_b(data), ft_push_a(data));
 }
 
 int	ft_find_next_in_range(t_stack *stack, int min, int max)
