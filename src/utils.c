@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 21:24:22 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 04:14:37 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,24 @@ void	ft_print_stack(t_stack *head)
 	}
 }
 
-void	ft_push_swap(t_data *data);
+int	ft_is_sorted(t_stack *stack)
+{
+	t_stack	*cur;
+
+	cur = stack;
+	while (cur && cur->next)
+	{
+		if (cur->value > cur->next->value)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
+}
+
+int	ft_get_min_distance(int pos, int size)
+{
+	if (pos < size - pos)
+		return pos;
+	else
+		return size - pos;
+}

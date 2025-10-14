@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 22:01:49 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 03:21:50 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,14 @@ static void	ft_move_min_to_b(t_data *data)
 	position = 0;
 	min = data->a;
 	current = data->a;
-	while (current)
+	while (current && ++total)
 	{
 		if (current->value < min->value)
 		{
 			min = current;
-			pos = total;
+			position = total;
 		}
 		current = current->next;
-		total++;
 	}
 	if (position <= total / 2)
 		while (data->a != min)
@@ -116,11 +115,13 @@ void	ft_small_sort(t_data *data)
 		temp = temp->next;
 		count++;
 	}
-	ft_printf("Count: %d\n", count);
-	if (count == 2)
+
+	if (count == 1) 
+        return;
+	else if (count == 2)
 		ft_sort_two(data);
-	if (count == 3)
+	else if (count == 3)
 		ft_sort_three(data);
-	if (count == 4 || count == 5)
+	else if (count == 4 || count == 5)
 		ft_sort_four_five(data);
 }

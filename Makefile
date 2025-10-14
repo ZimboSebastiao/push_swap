@@ -57,7 +57,7 @@ NAME        := push_swap
 # **************************************************************************** #
 
 # Arquivos fonte do projeto principal
-SRC_FILES   := main validator utils receiver  stack_a  stack_b stacks small_sort \
+SRC_FILES   := main validator utils receiver  stack_a  stack_b stacks small_sort big_sort \
             
 
 # Arquivos fonte do bônus (checker)
@@ -130,18 +130,15 @@ re: fclean all
 ## Exemplo simples de execução
 test: $(NAME)
 	@echo "$(BLUE)🚀 Testando push_swap...$(RESET)"
-	@./$(NAME) 2 1 3 6 5 8
+	@./$(NAME) 2 1 3 5 8
 	@echo
 	@echo "$(BLUE)🚫 Testando entrada inválida...$(RESET)"
 	@./$(NAME) 0 one 2 3 || true
 
-## Teste com checker_linux 
 check: $(NAME)
-	@echo "$(BLUE)🧩 Teste com checker_OS...$(RESET)"
-	@ARG="4 67 3 87 23"; \
-	OPS=$$(./$(NAME) $$ARG | wc -l); \
-	echo "Número de operações: $$OPS"; \
-	./$(NAME) $$ARG | ./checker_linux $$ARG
+	@echo "$(BLUE)🧠 Rodando testes automatizados...$(RESET)"
+	@chmod +x test/push_swap_tests.sh
+	@./test/push_swap_tests.sh
 
 # **************************************************************************** #
 #                                   UTILS                                      #

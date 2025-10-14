@@ -1,4 +1,9 @@
+push_swap_test_linux.sh
+push_swap_test.sh
+pro_checker
 push_swap
+traces.txt
+0
 obj
 *.o
 *.a

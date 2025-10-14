@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 21:19:49 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 04:19:57 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ typedef struct s_data
 	t_stack	*b;
 }	t_data;
 
+int		ft_find_next_in_range(t_stack *stack, int min, int max);
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_get_min_distance(int pos, int size);
+int		ft_find_max_position_b(t_stack *stack);
 int		ft_is_overflow(int argc, char **argv);
 t_stack	*ft_insert(int data, t_stack *head);
 int		ft_duplicate(int argc, char **argv);
@@ -41,15 +44,17 @@ int		ft_checker(int argc, char **argv);
 void	ft_reverse_rotate_a(t_data *data);
 void	ft_reverse_rotate_b(t_data *data);
 void	ft_print_stack(t_stack *head);
+int		ft_stack_size(t_stack *stack);
+int		ft_is_sorted(t_stack *stack);
 void	ft_small_sort(t_data *data);
 void	ft_rotate_a_b(t_data *data);
 void	ft_swap_a_b(t_data *data);
 void	ft_rotate_a(t_data *data);
 void	ft_rotate_b(t_data *data);
+void	ft_big_sort(t_data *data);
 void	ft_swap_a(t_data *data);
 void	ft_swap_b(t_data *data);
 void	ft_push_b(t_data *data);
 void	ft_push_a(t_data *data);
 int		ft_empty(int argc);
-
 #endif
