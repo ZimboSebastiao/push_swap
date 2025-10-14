@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 04:14:37 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 04:33:33 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	ft_checker(int argc, char **argv)
 {
-	if (ft_empty(argc))
-		exit(0);
 	if (ft_check_int(argc, argv))
 		return (1);
 	if (ft_is_overflow(argc, argv))

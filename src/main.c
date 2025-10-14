@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 04:22:54 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 04:38:27 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ static void	ft_free_stack(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-
+	if (argc == 1)
+		return (0);
 	if (ft_checker(argc, argv) != 0)
 	{
-		ft_putstr("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	data = malloc(sizeof(t_data));

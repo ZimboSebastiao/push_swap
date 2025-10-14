@@ -6,18 +6,11 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/12 21:23:00 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 04:44:29 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_empty(int argc)
-{
-	if (argc == 1)
-		return (1);
-	return (0);
-}
 
 int	ft_check_int(int argc, char **argv)
 {
@@ -66,6 +59,9 @@ int	ft_is_overflow(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
+		if ((argv[i][0] == '-' && argv[i][1] == '\0') ||
+			(argv[i][0] == '+' && argv[i][1] == '\0'))
+			return (1);
 		if (argv[i][0] == '-')
 		{
 			if (ft_overflow_str(argv[i] + 1, min))
@@ -82,17 +78,19 @@ int	ft_duplicate(int argc, char **argv)
 {
 	int		i;
 	int		j;
+	long	num_i;
+	long	num_j;
 
 	i = 1;
 	while (i < argc)
 	{
 		j = i + 1;
+		num_i = ft_atoi(argv[i]);
 		while (j < argc)
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
-			{
+			num_j = ft_atoi(argv[j]);
+			if (num_i == num_j)
 				return (1);
-			}
 			j++;
 		}
 		i++;
