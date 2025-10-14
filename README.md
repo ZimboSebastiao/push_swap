@@ -122,7 +122,7 @@ ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; valgrind ./push_swap $ARG
 
 ---
 
-## 📝 Notas
+## Notas
 
 - O programa deve lidar com qualquer sequência de números inteiros distintos
 - A pilha **A** é inicializada com os números fornecidos como argumento
