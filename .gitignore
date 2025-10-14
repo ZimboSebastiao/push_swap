@@ -7,3 +7,5 @@ traces.txt
 obj
 *.o
 *.a
+push_swap_test.log
+*.log

@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 04:33:33 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 05:00:56 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,45 @@ int	ft_get_min_distance(int pos, int size)
 		return pos;
 	else
 		return size - pos;
+}
+
+// Função auxiliar para ft_final_rotate_a
+void	ft_final_rotate_a(t_data *data)
+{
+	int	min_pos;
+	int	size;
+	int	min_value;
+	t_stack	*current;
+	int	pos;
+
+	if (!data->a)
+		return ;
+	
+	min_value = data->a->value;
+	min_pos = 0;
+	current = data->a;
+	pos = 0;
+	while (current)
+	{
+		if (current->value < min_value)
+		{
+			min_value = current->value;
+			min_pos = pos;
+		}
+		pos++;
+		current = current->next;
+	}
+	
+	size = ft_stack_size(data->a);
+	if (min_pos <= size / 2)
+	{
+		while (min_pos-- > 0)
+			ft_rotate_a(data);
+	}
+	else
+	{
+		min_pos = size - min_pos;
+		while (min_pos-- > 0)
+			ft_reverse_rotate_a(data);
+	}
 }
