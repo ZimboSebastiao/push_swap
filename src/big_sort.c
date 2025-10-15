@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 20:36:57 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 21:05:02 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	ft_big_sort(t_data *data)
 		return (ft_medium_sort(data));
 	else
 	{
-		// Para números muito grandes, usa uma estratégia mais agressiva
 		ft_medium_sort(data);
 	}
 }

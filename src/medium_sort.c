@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 20:30:00 by zimbo             #+#    #+#             */
-/*   Updated: 2025/10/14 20:40:06 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/14 21:04:03 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,10 @@ void	ft_medium_sort(t_data *data)
 	size = ft_stack_size(data->a);
 	if (size <= 5)
 		return (ft_small_sort(data));
-	
 	min_val = ft_find_min_value(data->a);
 	max_val = ft_find_max_value(data->a);
 	chunks = ft_calculate_chunks(size);
 	chunk_size = (max_val - min_val) / chunks + 1;
-	
 	i = 0;
 	while (i < chunks)
 	{
@@ -117,11 +115,9 @@ void	ft_medium_sort(t_data *data)
 		range_max = range_min + chunk_size - 1;
 		if (i == chunks - 1)
 			range_max = max_val;
-		
 		ft_push_chunk_to_b(data, range_min, range_max);
 		i++;
 	}
-	
 	while (data->b)
 		(ft_move_max_to_top_b(data), ft_push_a(data));
 }
