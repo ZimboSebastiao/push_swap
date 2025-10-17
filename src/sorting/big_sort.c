@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 21:05:02 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/16 21:44:57 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,37 +92,4 @@ void	ft_big_sort(t_data *data)
 	{
 		ft_medium_sort(data);
 	}
-}
-
-int	ft_find_next_in_range(t_stack *stack, int min, int max)
-{
-	t_stack	*current;
-	int		position;
-	int		best_pos;
-	int		distance;
-	int		current_dist;
-	int		size;
-
-	if (!stack)
-		return (-1);
-	current = stack;
-	position = 0;
-	best_pos = -1;
-	size = ft_stack_size(stack);
-	distance = size;
-	while (current)
-	{
-		if (current->value >= min && current->value <= max)
-		{
-			current_dist = ft_get_min_distance(position, size);
-			if (current_dist < distance)
-			{
-				best_pos = position;
-				distance = current_dist;
-			}
-		}
-		position++;
-		current = current->next;
-	}
-	return (best_pos);
 }

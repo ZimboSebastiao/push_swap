@@ -1,42 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   receiver.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/16 21:45:48 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/16 21:48:17 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*ft_insert(int data, t_stack *head)
 {
-	t_data	*data;
+	t_stack	*current;
+	t_stack	*temp;
 
-	if (argc == 1)
-		return (0);
-	if (ft_checker(argc, argv) != 0)
+	temp = malloc(sizeof(t_stack));
+	if (!temp)
+		return (NULL);
+	temp->value = data;
+	temp->next = NULL;
+	if (head == NULL)
+		return (temp);
+	current = head;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = temp;
+	return (head);
+}
+
+t_stack	*ft_receiver(int argc, char **argv)
+{
+	t_stack	*head;
+	int		i;
+
+	i = 1;
+	head = NULL;
+	while (i < argc)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		head = ft_insert(ft_atoi(argv[i]), head);
+		if (!head)
+			return (NULL);
+		i++;
 	}
-	data = malloc(sizeof(t_data));
-	if (!data)
-		return (1);
-	data->a = ft_receiver(argc, argv);
-	data->b = NULL;
-	if (!data->a)
-	{
-		free(data);
-		return (1);
-	}
-	if (!ft_is_sorted(data->a))
-		ft_big_sort(data);
-	ft_free_stack(data->a);
-	ft_free_stack(data->b);
-	free(data);
-	return (0);
+	return (head);
 }

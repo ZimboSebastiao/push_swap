@@ -6,7 +6,7 @@
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 21:09:39 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/16 21:41:35 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,23 @@ typedef struct s_data
 	t_stack	*b;
 }	t_data;
 
-int		ft_find_next_in_range(t_stack *stack, int min, int max);
+typedef struct s_best_data
+{
+	int		position;
+	int		distance;
+	t_stack	*stack;
+}	t_best_data;
+
+typedef struct s_check_data
+{
+	t_stack		*current;
+	int			position;
+	int			min;
+	int			max;
+	t_best_data	*best;
+}	t_check_data;
+
+int		ft_check_and_update_best(t_check_data *data);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_get_min_distance(int pos, int size);
 int		ft_find_max_position_b(t_stack *stack);
@@ -58,4 +74,12 @@ void	ft_swap_b(t_data *data);
 void	ft_push_b(t_data *data);
 void	ft_push_a(t_data *data);
 void	ft_move_max_to_top_b(t_data *data);
+int		ft_find_min_value(t_stack *stack);
+int		ft_find_max_value(t_stack *stack);
+void	ft_push_chunk_to_b(t_data *data, int min_val, int max_val);
+int		ft_calculate_chunks(int size);
+void	ft_process_chunks(t_data *data, int min_val, int max_val, int chunks);
+void	ft_push_chunks_to_b(t_data *data);
+int		ft_find_next_in_range(t_stack *stack, int min, int max);
+
 #endif

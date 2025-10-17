@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   find_next_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/16 21:45:48 by zimbo            ###   ########.fr       */
+/*   Created: 2025/10/14 21:50:00 by zalberti          #+#    #+#             */
+/*   Updated: 2025/10/16 21:46:08 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_check_and_update_best(t_check_data *data)
 {
-	t_data	*data;
+	int	current_dist;
+	int	size;
 
-	if (argc == 1)
-		return (0);
-	if (ft_checker(argc, argv) != 0)
+	if (data->current->value >= data->min && data->current->value <= data->max)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		size = ft_stack_size(data->best->stack);
+		current_dist = ft_get_min_distance(data->position, size);
+		if (current_dist < data->best->distance)
+		{
+			data->best->position = data->position;
+			data->best->distance = current_dist;
+			return (1);
+		}
 	}
-	data = malloc(sizeof(t_data));
-	if (!data)
-		return (1);
-	data->a = ft_receiver(argc, argv);
-	data->b = NULL;
-	if (!data->a)
-	{
-		free(data);
-		return (1);
-	}
-	if (!ft_is_sorted(data->a))
-		ft_big_sort(data);
-	ft_free_stack(data->a);
-	ft_free_stack(data->b);
-	free(data);
 	return (0);
 }

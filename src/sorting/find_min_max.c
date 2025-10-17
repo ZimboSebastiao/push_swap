@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   receiver.c                                         :+:      :+:    :+:   */
+/*   find_min_max.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/14 06:04:05 by zimbo            ###   ########.fr       */
+/*   Created: 2025/10/14 21:50:00 by zalberti          #+#    #+#             */
+/*   Updated: 2025/10/16 21:44:04 by zimbo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_insert(int data, t_stack *head)
+int	ft_find_min_value(t_stack *stack)
 {
+	int		min;
 	t_stack	*current;
-	t_stack	*temp;
 
-	temp = malloc(sizeof(t_stack));
-	if (!temp)
-		return (NULL);
-	temp->value = data;
-	temp->next = NULL;
-	if (head == NULL)
-		return (temp);
-	current = head;
-	while (current->next != NULL)
+	if (!stack)
+		return (0);
+	min = stack->value;
+	current = stack;
+	while (current)
+	{
+		if (current->value < min)
+			min = current->value;
 		current = current->next;
-	current->next = temp;
-	return (head);
+	}
+	return (min);
 }
 
-t_stack	*ft_receiver(int argc, char **argv)
+int	ft_find_max_value(t_stack *stack)
 {
-	t_stack	*head;
-	int		i;
+	int		max;
+	t_stack	*current;
 
-	i = 1;
-	head = NULL;
-	while (i < argc)
+	if (!stack)
+		return (0);
+	max = stack->value;
+	current = stack;
+	while (current)
 	{
-		head = ft_insert(ft_atoi(argv[i]), head);
-		if (!head)
-			return (NULL);
-		i++;
+		if (current->value > max)
+			max = current->value;
+		current = current->next;
 	}
-	return (head);
+	return (max);
 }
