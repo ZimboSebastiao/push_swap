@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: zalberti <zalberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/16 21:48:45 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/17 15:15:13 by zalberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,16 @@ static int	ft_overflow_str(const char *num, const char *max)
 		return (1);
 	if (size_num < size_max)
 		return (0);
-	return (ft_strncmp(num, max, size_num) > 0);
+	while (*num && *max)
+	{
+		if (*num > *max)
+			return (1);
+		if (*num < *max)
+			return (0);
+		num++;
+		max++;
+	}
+	return (0);
 }
 
 int	ft_is_overflow(int argc, char **argv)

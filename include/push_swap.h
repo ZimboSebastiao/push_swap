@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: zalberti <zalberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:48:31 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/16 21:41:35 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/17 15:12:43 by zalberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
-# include <limits.h>
-# include "ft_printf.h"
 # include "libft.h"
 
 typedef struct s_stack
@@ -48,7 +44,6 @@ typedef struct s_check_data
 }	t_check_data;
 
 int		ft_check_and_update_best(t_check_data *data);
-int		ft_strcmp(const char *s1, const char *s2);
 int		ft_get_min_distance(int pos, int size);
 int		ft_find_max_position_b(t_stack *stack);
 int		ft_is_overflow(int argc, char **argv);

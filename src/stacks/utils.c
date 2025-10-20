@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zimbo <zimbo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: zalberti <zalberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:41 by zalberti          #+#    #+#             */
-/*   Updated: 2025/10/16 21:44:37 by zimbo            ###   ########.fr       */
+/*   Updated: 2025/10/17 15:14:59 by zalberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,6 @@ int	ft_checker(int argc, char **argv)
 	if (ft_duplicate(argc, argv))
 		return (1);
 	return (0);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
 int	ft_is_sorted(t_stack *stack)

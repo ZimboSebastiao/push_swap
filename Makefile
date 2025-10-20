@@ -32,13 +32,13 @@ export LOGO
 
 # Compilador e flags
 CC          := cc
-CFLAGS      := -Wall -Wextra -Werror -Iinclude -Ilibft -Ilibft/ft_printf
+CFLAGS      := -Wall -Wextra -Werror -Iinclude -Ilibft1
 
 # Diretórios
 SRC_DIR     := src
 OBJ_DIR     := obj
 INC_DIR     := include
-LIBFT_DIR   := libft
+LIBFT_DIR   := libft1
 LIBFT       := $(LIBFT_DIR)/libft.a
 
 # Nome do binário
