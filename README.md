@@ -172,22 +172,13 @@ valgrind --leak-check=full ./push_swap $ARG
 ./push_swap 1 2 "abc"  # ❌ Erro: entrada inválida
 ```
 
-## 📝 Fluxo do Algoritmo
+## Fluxo do Algoritmo
 
-```mermaid
-graph TD
-    A[Início] --> B[Validar Argumentos]
-    B --> C[Inicializar Pilhas]
-    C --> D{Verificar se está ordenado}
-    D -->|Sim| E[Fim]
-    D -->|Não| F[Escolher Estratégia]
-    F --> G[Executar Operações]
-    G --> D
-```
+![Diagrama do Fluxo](/imgs/Fluxo%20principal.svg)
 
-## 📈 Fluxo de Checagem de Erros
+###  Estratégia Medium Sort (Chunking)
 
-![Diagrama do Fluxo](/imgs/flow3.svg)
+![Diagrama do Fluxo](/imgs/Medium%20Sort(Chunking).svg)
 
 
 
