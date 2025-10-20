@@ -1,5 +1,3 @@
-Aqui está a documentação melhorada com os testes de benchmark e a opção `make check`:
-
 # Projeto **Push Swap** 42 São Paulo
 
 ## Descrição
