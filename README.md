@@ -1,93 +1,142 @@
-# Projeto **Push Swap** 42 São Paulo
+# Push Swap
 
-## Descrição
+<div align="center">
 
-O projeto **Push Swap** consiste na implementação de um algoritmo eficiente para ordenar uma sequência de números inteiros distintos utilizando duas pilhas (**A** e **B**) e um conjunto limitado de operações.
+![Push Swap](https://img.shields.io/badge/42-São_Paulo-blue?style=for-the-badge)
+![Language](https://img.shields.io/badge/C-100%25-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-**Objetivo**: Ordenar os números da pilha **A** em ordem crescente (do menor para o maior) utilizando o menor número possível de operações.
+**Um algoritmo eficiente para ordenação usando duas pilhas**
 
----
+[Instalação](#instalação) • [Uso](#uso) • [Benchmark](#benchmark) • [Testes](#testes)
+
+</div>
+
+## Sobre o Projeto
+
+O **Push Swap** é um projeto da 42 São Paulo que desafia os estudantes a implementar um algoritmo de ordenação altamente eficiente utilizando apenas duas pilhas e um conjunto limitado de operações.
+
+### Objetivo
+Ordenar uma sequência de números inteiros distintos na pilha **A** em ordem crescente, utilizando o menor número possível de operações pré-definidas.
+
+## Estrutura do Projeto
+
+```
+push_swap/
+├── src/           # Código fonte
+├── includes/      # Headers
+├── test/  		   # Testes
+├── libft1/        # Biblioteca personalizada
+├── Makefile       # Sistema de build
+└── checker_linux  # Validador externo
+```
 
 ## Operações Disponíveis
 
-### Operações Básicas
-- **`sa`** (swap a): Troca os dois primeiros elementos do topo da pilha **A**
-- **`sb`** (swap b): Troca os dois primeiros elementos do topo da pilha **B**
-- **`ss`**: Executa `sa` e `sb` simultaneamente
+### 🔄 Operações de Swap
+| Operação | Descrição |
+|----------|-----------|
+| `sa` | Swap A - Troca os dois primeiros elementos da pilha A |
+| `sb` | Swap B - Troca os dois primeiros elementos da pilha B |
+| `ss` | Executa `sa` e `sb` simultaneamente |
 
-### Operações de Transferência
-- **`pa`** (push a): Move o elemento do topo da pilha **B** para o topo da pilha **A**
-- **`pb`** (push b): Move o elemento do topo da pilha **A** para o topo da pilha **B**
+### 📤 Operações de Push
+| Operação | Descrição |
+|----------|-----------|
+| `pa` | Push A - Move o topo da pilha B para o topo da pilha A |
+| `pb` | Push B - Move o topo da pilha A para o topo da pilha B |
 
-### Operações de Rotação
-- **`ra`** (rotate a): Desloca todos os elementos da pilha **A** para cima (o primeiro vai para o final)
-- **`rb`** (rotate b): Desloca todos os elementos da pilha **B** para cima (o primeiro vai para o final)
-- **`rr`**: Executa `ra` e `rb` simultaneamente
+### 🔄 Operações de Rotação
+| Operação | Descrição |
+|----------|-----------|
+| `ra` | Rotate A - Todos os elementos da pilha A sobem uma posição |
+| `rb` | Rotate B - Todos os elementos da pilha B sobem uma posição |
+| `rr` | Executa `ra` e `rb` simultaneamente |
 
-### Operações de Rotação Reversa
-- **`rra`** (reverse rotate a): Desloca todos os elementos da pilha **A** para baixo (o último vai para o topo)
-- **`rrb`** (reverse rotate b): Desloca todos os elementos da pilha **B** para baixo (o último vai para o topo)
-- **`rrr`**: Executa `rra` e `rrb` simultaneamente
+### 🔁 Operações de Rotação Reversa
+| Operação | Descrição |
+|----------|-----------|
+| `rra` | Reverse Rotate A - Todos os elementos da pilha A descem uma posição |
+| `rrb` | Reverse Rotate B - Todos os elementos da pilha B descem uma posição |
+| `rrr` | Executa `rra` e `rrb` simultaneamente |
 
----
-
-## Instalação e Execução
-
-### 1. Clonar o Repositório
-```bash
-git clone https://github.com/ZimboSebastiao/push_swap.git
-cd push_swap
-```
-
-### 2. Compilar o Projeto
-```bash
-make
-```
-
-### 3. Opções de Compilação
-```bash
-make help    # Exibe todas as opções disponíveis
-make clean   # Remove arquivos objetos
-make fclean  # Remove arquivos objetos e executáveis
-make re      # Recompila o projeto
-make check   # Executa testes automatizados (requer checker_linux)
-```
-
-### 4. Executar o Programa
-```bash
-./push_swap [sequência de números]
-```
-
-**Exemplo:**
-```bash
-./push_swap 3 1 4 2 5
-```
-
----
-
-## 📊 Benchmark - Medindo Desempenho
+## Instalação
 
 ### Pré-requisitos
 ```bash
-sudo apt install ruby
+sudo apt update
+sudo apt install gcc make ruby
 ```
 
-### Preparar o Checker
+### Clone e Compilação
 ```bash
-# Autorizar o executável do checker
+# Clonar o repositório
+git clone https://github.com/ZimboSebastiao/push_swap.git
+cd push_swap
+
+# Compilar o projeto
+make
+
+# Dar permissão ao validador
 chmod +x checker_linux
 ```
 
-### Testar com Sequência Aleatória
-```bash
-# Para 100 números
-ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
+## Comandos Make
 
-# Para 500 números  
-ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
+| Comando | Descrição |
+|---------|-----------|
+| `make` | Compila o projeto |
+| `make clean` | Remove arquivos objeto |
+| `make fclean` | Remove arquivos objeto e executáveis |
+| `make re` | Recompila o projeto |
+| `make check` | Executa suite de testes automatizados |
+| `make help` | Exibe ajuda dos comandos disponíveis |
+
+## Uso
+
+### Execução Básica
+```bash
+./push_swap [números]
 ```
 
-### Testes de Benchmark Específicos
+### Exemplos
+```bash
+# Ordenar números específicos
+./push_swap 3 1 4 2 5
+
+# Ordenar com números negativos
+./push_swap -5 10 -2 7 0
+```
+
+## Testes
+
+### Testes Automatizados
+```bash
+# Executar suite completa de testes
+make check
+```
+
+### Validação da Ordenação
+```bash
+# Gerar sequência aleatória e validar
+ARG=$(ruby -e "puts (1..100).to_a.shuffle.join(' ')")
+./push_swap $ARG | ./checker_linux $ARG
+```
+
+### Teste de Performance
+```bash
+# Teste com 100 números
+ARG=$(ruby -e "puts (1..100).to_a.shuffle.join(' ')")
+./push_swap $ARG | wc -l
+
+# Teste com 500 números
+ARG=$(ruby -e "puts (1..500).to_a.shuffle.join(' ')")
+./push_swap $ARG | wc -l
+```
+
+## 📊 Benchmark
+
+### Teste Específico de Performance
 ```bash
 # Teste com sequência específica de 100 números
 arg="795810 464593 787015 7024 623056 734594 -66964 877081 -52513 563151 408854 440758 939138 928252 968216 196709 321579 479839 376620 136893 318513 327838 648853 554227 583602 891314 871381 171491 861292 862744 111576 480571 6125 786428 194231 842440 302939 916945 164091 735976 752345 411248 187116 -72660 347651 129000 610282 684675 540462 729646 578480 524229 367109 278296 178265 758555 685876 996129 428943 917055 717675 -19224 579050 243554 98384 963965 -61309 445438 604516 -71206 600418 51272 701015 923294 505644 -92226 477967 869059 444070 694427 658307 145844 71750 732166 925113 617861 940631 906268 709493 570693 263993 573317 863239 556088 326095 612973 346345 955583 205672 -25421";./push_swap $arg | ./checker_linux $arg; echo "In :";./push_swap $arg | wc -l
@@ -97,88 +146,105 @@ arg="496284 550907 359740 487595 965200 776929 -61518 172851 753920 696601 68987
 
 ```
 
-### Testes de Validação
-```bash
-# Validar se a ordenação está correta
-ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_linux $ARG
+### Métricas de Referência
+| Quantidade | Operações Máximas | Status |
+|------------|-------------------|---------|
+| 3 números | 3 operações | ✅ |
+| 5 números | 12 operações | ✅ |
+| 100 números | ~700 operações | ✅ |
+| 500 números | ~5500 operações | ✅ |
 
-# Contar operações e validar
-ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l && ./push_swap $ARG | ./checker_linux $ARG
+## 🔍 Verificação de Qualidade
+
+### Teste com Valgrind
+```bash
+# Verificar memory leaks
+ARG=$(ruby -e "puts (1..100).to_a.shuffle.join(' ')")
+valgrind --leak-check=full ./push_swap $ARG
 ```
 
----
+### Validação de Entrada
+```bash
+# Verificar números duplicados
+./push_swap 1 2 3 2  # ❌ Erro: números duplicados
+
+# Verificar entradas inválidas  
+./push_swap 1 2 "abc"  # ❌ Erro: entrada inválida
+```
+
+## 📝 Fluxo do Algoritmo
+
+```mermaid
+graph TD
+    A[Início] --> B[Validar Argumentos]
+    B --> C[Inicializar Pilhas]
+    C --> D{Verificar se está ordenado}
+    D -->|Sim| E[Fim]
+    D -->|Não| F[Escolher Estratégia]
+    F --> G[Executar Operações]
+    G --> D
+```
 
 ## 📈 Fluxo de Checagem de Erros
 
 ![Diagrama do Fluxo](/imgs/flow3.svg)
 
----
 
-## Critérios de Avaliação
-
-- **Eficiência**: Número de operações executadas
-- **Corretude**: Sequência final ordenada corretamente
-- **Performance**: Tempo de execução para diferentes tamanhos de entrada
-
-### Limites de Referência
-- **100 números**: Idealmente menos de 700 operações
-- **500 números**: Idealmente menos de 5500 operações
-
----
-
-## Testes Automatizados
-
-### Usando make check
-```bash
-make check  # Executa uma série de testes pré-definidos
-```
-
-### Teste Manual Completo
-```bash
-# Teste com contagem de operações e validação
-echo "=== TESTE DE PERFORMANCE ==="
-arg="703122 594407 690128 454899 221321 77718 568728 -52969 215758 121011 169575 975364 823381 594008 871717 620108 380708 159117 394600 468189 -59365 263780 259748 250560 511019 -1433 988325 861914 -19340 369794 698469 328899 140665 192324 175807 388755 41978 826985 255648 813683 609988 389558 648920 693754 153814 972589 -85892 675751 492600 993905 728008 69817 370298 739001 657262 203961 957431 637499 518108 646538 87397 184901 454455 128332 961975 15286 197215 923901 577458 -55634 637771 96538 445042 584511 62723 847202 38790 265402 -54565 182725 195091 416408 695351 383933 496941 983289 34632 987038 738894 158850 925320 317534 998659 481781 904108 241958 202258 598966 216396 2855"
-
-echo "Resultado:"
-./push_swap $arg | ./checker_linux $arg
-echo "Número de operações:"
-./push_swap $arg | wc -l
-```
-
----
 
 ## Solução de Problemas
 
-### Erro Comuns
-- **Números duplicados**: Certifique-se que todos os números são distintos
-- **Valores fora do range**: Verifique se todos os números são inteiros válidos
-- **Memory leaks**: Use `valgrind` para verificar vazamentos de memória
+### Problemas Comuns
 
-### Verificação com Valgrind
+**Checker não executa:**
 ```bash
-ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; valgrind ./push_swap $ARG
-```
-
-### Problemas com o Checker
-```bash
-# Se o checker_linux não executar:
 chmod +x checker_linux
-
-# Verificar se é executável:
-ls -la checker_linux
 ```
 
----
+**Erro de números duplicados:**
+```bash
+# ❌ Incorreto
+./push_swap 1 2 3 2
 
-## Notas
+# ✅ Correto  
+./push_swap 1 2 3 4
+```
 
-- O programa deve lidar com qualquer sequência de números inteiros distintos
-- A pilha **A** é inicializada com os números fornecidos como argumento
-- A pilha **B** inicia vazia
-- O resultado é uma sequência de operações que ordena a pilha **A**
-- Use `make check` para testes rápidos e automatizados
-- O teste de benchmark específico ajuda a comparar performance entre diferentes implementações
+**Erro de entrada inválida:**
+```bash
+# ❌ Incorreto
+./push_swap 1 2 "abc"
 
----
+# ✅ Correto
+./push_swap 1 2 3
+```
 
-**Dica**: Para desenvolvimento, use frequentemente `make check` e os testes de benchmark para garantir que otimizações não quebrem a funcionalidade existente.
+### Debug
+```bash
+# Compilar com flags de debug
+make DEBUG=1
+
+# Executar com output detalhado
+./push_swap 3 2 1
+```
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## Autora
+
+**Zimbo Sebastião** - 42 São Paulo
+
+<div align="center">
+
+**⭐️ Não esqueça de dar uma estrela se este projeto te ajudou!**
+
+</div>
